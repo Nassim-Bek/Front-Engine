@@ -1,0 +1,8 @@
+.app-footer { padding:12px; text-align:center; color:#777; font-size:12px; }
+.footer-inner { max-width:1100px; margin:0 auto; }
+
+/* Dark theme (scoped to component) */
+:host-context(.theme-dark) .app-footer {
+	background: #2e2e2e;
+	color: #e8e8e8;
+}

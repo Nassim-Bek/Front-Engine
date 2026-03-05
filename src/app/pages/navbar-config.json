@@ -1,0 +1,14 @@
+{
+  "menu": [
+    { "label": "Accueil", "route": "/home" },
+    { "label": "Gestion des comptes", "route": "/accounts" },
+    {
+      "label": "Gestion des clients",
+      "submenu": [
+        { "label": "Gestion Retours Courrier", "route": "/clients/retours" },
+        { "label": "Comptes Trimestrialisés", "route": "/clients/trimestriels" }
+      ]
+    },
+    { "label": "Paramétrage", "route": "/settings" }
+  ]
+}

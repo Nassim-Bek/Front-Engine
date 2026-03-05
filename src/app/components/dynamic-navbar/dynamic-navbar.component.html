@@ -1,0 +1,25 @@
+<nav [ngClass]="getNavbarClass()">
+  <ul class="navbar-list">
+    <li *ngFor="let item of menuConfig" class="navbar-item">
+      <!-- Si l'élément a une route, utiliser routerLink -->
+      <a *ngIf="!item.submenu" [routerLink]="item.route">{{ item.label }}</a>
+
+      <!-- Si l'élément a un sous-menu, agir comme un bouton pour ouvrir/fermer -->
+      <a *ngIf="item.submenu"
+         href="#"
+         role="button"
+         [attr.aria-expanded]="item.open ? 'true' : 'false'"
+         (click)="$event.preventDefault(); toggleSubmenu(item)">
+        {{ item.label }}
+        <span class="triangle">▼</span>
+      </a>
+
+      <!-- Sous-menu -->
+      <ul *ngIf="item.submenu && item.open" [ngClass]="getSubmenuClass()">
+        <li *ngFor="let sub of item.submenu" class="submenu-item">
+          <a [routerLink]="sub.route">{{ sub.label }}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,82 @@
+/* Light Theme */
+.navbar-light {
+  background-color: #dddedf; /* gris clair */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+}
+
+.submenu-light {
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+/* Dark Theme */
+.navbar-dark {
+  background-color: #2e2e2e; /* dark theme background */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+}
+
+.submenu-dark {
+  background-color: #2e2e2e;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+/* Styles communs */
+.navbar-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-item a {
+  display: block;
+  padding: 15px 20px;
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar-item a:hover {
+  background-color: #acacac;
+}
+
+.triangle {
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+
+.submenu-item a {
+  display: block;
+  padding: 10px 15px;
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Dark theme colors for links */
+.navbar-dark .navbar-item a,
+.navbar-dark .submenu-item a {
+  color: #e8e8e8;
+}
+
+.navbar-dark .navbar-item a:hover {
+  background-color: #3a3a3a;
+}

@@ -1,0 +1,39 @@
+{
+  "title": "Dictionnaire des attributs",
+  "navbar": {
+    "menu": [
+      { "label": "Accueil", "route": "/home" },
+      { "label": "Gestion des comptes", "route": "/accounts" },
+      {
+        "label": "Gestion des clients",
+        "submenu": [
+          { "label": "Gestion Retours Courrier", "route": "/clients/retours" },
+          { "label": "Comptes Trimestrialisés", "route": "/clients/trimestriels" }
+        ]
+      },
+      { "label": "Paramétrage", "route": "/settings" }
+    ]
+  },
+  "addButton": { "label": "Ajouter" },
+  "filters": [
+    { "label": "Code attribut", "name": "code", "type": "text" },
+    { "label": "Type d'attribut", "name": "type", "type": "select", "options": [ { "label": "Tout", "value": "" }, { "label": "java.lang.String", "value": "string" }, { "label": "java.lang.Long", "value": "long" }, { "label": "java.util.Date", "value": "date" } ] }
+  ],
+  "table": {
+    "title": "Dictionnaire des attributs",
+    "headers": ["Code attribut", "Type d'attribut", "Actions"],
+    "rows": [
+      ["CODE_AGENCE", "java.lang.Long", ""],
+      ["CODE_AGENCE_ORIGINE", "java.lang.Long", ""],
+      ["CODE_EVENT", "java.lang.String", ""],
+      ["CODE_PROGRAMME", "java.lang.String", ""],
+      ["CODE_TYPE_OPERATION", "java.lang.Long", ""],
+      ["CODE_TYPE_OPERATION_ORIGINE", "java.lang.Long", ""],
+      ["CODE_UTILISATEUR", "java.lang.Long", ""],
+      ["COMPTE_CREDIT", "java.lang.String", ""],
+      ["COMPTE_DEBIT", "java.lang.String", ""],
+      ["DATE_ENVOIE", "java.util.Date", ""]
+    ],
+    "pageSize": 10
+  }
+}

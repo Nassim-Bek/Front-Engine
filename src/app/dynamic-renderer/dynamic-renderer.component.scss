@@ -1,0 +1,8 @@
+.dynamic-renderer {
+  padding: 8px;
+}
+
+/* Keep renderer styling minimal; presentation belongs to child components */
+.dynamic-renderer > div[role="dynamicContainer"] {
+  width: 100%;
+}

@@ -1,0 +1,22 @@
+form.dynamic-form {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+form.dynamic-form label {
+	color: #222;
+}
+
+.theme-dark form.dynamic-form label {
+	color: #e8e8e8;
+}
+
+.theme-dark form.dynamic-form input,
+.theme-dark form.dynamic-form select,
+.theme-dark form.dynamic-form textarea {
+	background: #333333;
+	border-color: #444444;
+	color: #e8e8e8;
+}
+

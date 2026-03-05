@@ -1,0 +1,9 @@
+.pagination { display:inline-flex; gap:6px; }
+.pagination button { padding:4px 8px; border:1px solid #bbb; background:#fff; }
+.pagination button.active { background:#1976d2; color:#fff; }
+.pagination button[disabled] { opacity:0.5; }
+
+/* Dark theme */
+:host-context(.theme-dark) .pagination button { background: #3a3a3a; border-color:#555; color:#e8e8e8 }
+:host-context(.theme-dark) .pagination button.active { background:#1976d2 }
+:host-context(.theme-dark) .pagination { color: #e8e8e8 }

@@ -1,0 +1,32 @@
+/* Header layout: center logo horizontally and vertically, keep controls on the right */
+.app-header {
+	position: relative;
+	height: 64px;
+	display: flex;
+	align-items: center;
+	padding: 8px 16px;
+	box-sizing: border-box;
+}
+
+.app-logo {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	height: 40px;
+	width: auto;
+	display: block;
+}
+
+.header-controls {
+	margin-left: auto;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+/* Small responsive tweak */
+@media (max-width: 600px) {
+	.app-logo { height: 32px; }
+}

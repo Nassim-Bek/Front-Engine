@@ -1,0 +1,14 @@
+select.dynamic-dropdown {
+	padding: 6px 8px;
+	border: 1px solid #ccc;
+	background: #fff;
+	color: #111;
+}
+
+/* Dark theme */
+.theme-dark select.dynamic-dropdown {
+	background: #333333;
+	border-color: #444444;
+	color: #e8e8e8;
+}
+

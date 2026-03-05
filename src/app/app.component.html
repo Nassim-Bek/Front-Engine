@@ -1,0 +1,25 @@
+<!-- Header with logo and theme switcher -->
+<header class="app-header">
+	<img [src]="logoSrc" alt="Logo" class="app-logo" />
+	<div class="header-controls">
+		<app-dynamic-theme-switcher></app-dynamic-theme-switcher>
+	</div>
+</header>
+
+<ng-container *ngIf="loading">
+	<div style="padding:16px; text-align:center; color:#666">Chargement de la configuration…</div>
+</ng-container>
+
+<ng-container *ngIf="!loading && uiConfig">
+	<app-dynamic-renderer [uiConfig]="uiConfig"></app-dynamic-renderer>
+</ng-container>
+
+<!-- Debug: show loaded config (remove later) -->
+<div *ngIf="!loading && uiConfig" style="padding:8px; max-height:200px; overflow:auto; background:#f9f9f9; border-top:1px solid #eee">
+	<strong>Debug: loaded uiConfig</strong>
+	<pre style="font-size:12px">{{ uiConfig | json }}</pre>
+</div>
+
+<ng-container *ngIf="!loading && loadError">
+	<div style="padding:16px; text-align:center; color:#a00">Erreur: {{ loadError }}</div>
+</ng-container>

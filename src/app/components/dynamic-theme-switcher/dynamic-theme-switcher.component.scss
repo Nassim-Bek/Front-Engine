@@ -1,0 +1,29 @@
+.theme-switcher {
+	display: flex;
+	align-items: center;
+}
+.theme-switcher button {
+	margin-right: 8px;
+	padding: 6px 12px;
+	border: 1px solid #cfcfcf;
+	background: #fff;
+	color: #222;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.theme-switcher button.active {
+	background: #1976d2;
+	color: #fff;
+	border-color: #1976d2;
+}
+
+/* Dark theme (scoped) */
+:host-context(.theme-dark) .theme-switcher button {
+	background: #3a3a3a;
+	border-color: #555;
+	color: #e8e8e8;
+}
+:host-context(.theme-dark) .theme-switcher button.active {
+	background: #1976d2;
+	color: #fff;
+}

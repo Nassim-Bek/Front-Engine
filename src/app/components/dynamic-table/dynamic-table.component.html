@@ -1,0 +1,34 @@
+<div class="panel">
+	<div class="panel-header">
+		<div class="panel-title">{{ title }}</div>
+		<div class="panel-actions">
+			<button class="btn btn-add">+ Ajouter</button>
+		</div>
+	</div>
+
+	<div class="panel-filter">
+		<div class="filter-left">Filtrer par:</div>
+		<div class="filter-right">
+			<button class="btn">Rechercher</button>
+		</div>
+	</div>
+
+	<div class="panel-body">
+		<table class="data-table">
+			<thead>
+				<tr>
+					<th *ngFor="let h of headers">{{ h }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let row of rows">
+					<td *ngFor="let cell of row">{{ cell }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="panel-footer">
+		<app-dynamic-pagination [total]="rows.length" [page]="page" [pageSize]="pageSize" (pageChange)="page = $event"></app-dynamic-pagination>
+	</div>
+</div>

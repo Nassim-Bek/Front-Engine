@@ -1,0 +1,11 @@
+<aside class="sidebar">
+	<ul class="sidebar-list">
+		<li *ngFor="let it of items">
+			<a *ngIf="it.route" [routerLink]="it.route">{{ it.label }}</a>
+			<span *ngIf="it.submenu">{{ it.label }}</span>
+			<ul *ngIf="it.submenu">
+				<li *ngFor="let s of it.submenu"><a [routerLink]="s.route">{{ s.label }}</a></li>
+			</ul>
+		</li>
+	</ul>
+</aside>
