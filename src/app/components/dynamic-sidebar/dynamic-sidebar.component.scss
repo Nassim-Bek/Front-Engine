@@ -1,16 +1,16 @@
-aside.dynamic-sidebar {
-	background: #f9f9f9;
-	padding: 12px;
-	border-right: 1px solid #e0e0e0;
+:host {
+  display: block;
 }
 
-.theme-dark aside.dynamic-sidebar {
-	background: #2e2e2e;
-	border-color: #444444;
-	color: #e8e8e8;
+:host aside {
+  border-right: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(255, 255, 255, 0.72);
+  min-height: 100%;
+  padding: 14px;
 }
 
-.theme-dark .sidebar-item {
-	color: #e8e8e8;
+:host-context(.theme-dark) aside {
+  background: rgba(15, 23, 42, 0.75);
+  border-right-color: rgba(71, 85, 105, 0.6);
+  color: #e2e8f0;
 }
-

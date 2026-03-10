@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-dynamic-footer',
   standalone: true,
-  template: `<footer class="app-footer"><ng-content></ng-content></footer>`
+  templateUrl: './dynamic-footer.component.html',
+  styleUrls: ['./dynamic-footer.component.scss']
 })
 export class DynamicFooterComponent {}

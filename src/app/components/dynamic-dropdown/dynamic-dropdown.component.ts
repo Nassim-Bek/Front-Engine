@@ -10,7 +10,8 @@ import { CommonModule } from '@angular/common';
       <option [value]="''">--</option>
       <option *ngFor="let o of options" [value]="o.value">{{ o.label }}</option>
     </select>
-  `
+  `,
+  styleUrls: ['./dynamic-dropdown.component.scss']
 })
 export class DynamicDropdownComponent {
   @Input() options: Array<{ label: string; value: any }> = [];

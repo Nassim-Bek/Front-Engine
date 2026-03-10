@@ -1,29 +1,39 @@
 .theme-switcher {
-	display: flex;
-	align-items: center;
-}
-.theme-switcher button {
-	margin-right: 8px;
-	padding: 6px 12px;
-	border: 1px solid #cfcfcf;
-	background: #fff;
-	color: #222;
-	border-radius: 4px;
-	cursor: pointer;
-}
-.theme-switcher button.active {
-	background: #1976d2;
-	color: #fff;
-	border-color: #1976d2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(255, 255, 255, 0.85);
 }
 
-/* Dark theme (scoped) */
-:host-context(.theme-dark) .theme-switcher button {
-	background: #3a3a3a;
-	border-color: #555;
-	color: #e8e8e8;
+.theme-switcher button {
+  border: 0;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: transparent;
+  color: #334155;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
 }
+
+.theme-switcher button.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+:host-context(.theme-dark) .theme-switcher {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(71, 85, 105, 0.65);
+}
+
+:host-context(.theme-dark) .theme-switcher button {
+  color: #cbd5e1;
+}
+
 :host-context(.theme-dark) .theme-switcher button.active {
-	background: #1976d2;
-	color: #fff;
+  background: #3b82f6;
+  color: #ffffff;
 }

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ThemeLoader } from '../../config/theme-loader'; // charge le thème actif
+import { ThemeLoader } from '../../config/theme-loader';
 
 @Component({
   selector: 'app-dynamic-navbar',
@@ -13,21 +13,28 @@ import { ThemeLoader } from '../../config/theme-loader'; // charge le thème act
 export class DynamicNavbarComponent {
   @Input() menuConfig: any[] = [];
 
-  theme = ThemeLoader.getTheme(); // récupère le thème actif
+  theme = ThemeLoader.getTheme();
 
   ngOnInit(): void {
-    this.menuConfig.forEach(item => {
+    this.menuConfig.forEach((item) => {
       item.open = false;
     });
-    // subscribe to future theme changes to update classes reactively
+
     try {
-      ThemeLoader.onChange((t: any) => { this.theme = t; });
+      ThemeLoader.onChange((t: any) => {
+        this.theme = t;
+      });
     } catch (e) {}
   }
 
+  openSubmenu(item: any): void {
+    if (!item?.submenu) return;
+    item.open = true;
+  }
 
-  toggleSubmenu(item: any): void {
-    item.open = !item.open;
+  closeSubmenu(item: any): void {
+    if (!item?.submenu) return;
+    item.open = false;
   }
 
   getNavbarClass(): string {

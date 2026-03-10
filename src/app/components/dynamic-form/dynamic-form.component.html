@@ -1,0 +1,27 @@
+<form class="filter-form">
+  <div class="filter-caption">Filtrer par:</div>
+
+  <div *ngIf="config?.fields?.length" class="fields">
+    <div class="field" *ngFor="let f of config.fields">
+      <label>{{ f.label }}</label>
+      <ng-container [ngSwitch]="f.type">
+        <input
+          *ngSwitchCase="'text'"
+          [(ngModel)]="model[getFieldName(f)]"
+          [name]="getFieldName(f)"
+          [placeholder]="f.placeholder || ''"
+        />
+
+        <select *ngSwitchCase="'select'" [(ngModel)]="model[getFieldName(f)]" [name]="getFieldName(f)">
+          <option *ngFor="let opt of f.options" [value]="opt.value">{{ opt.label }}</option>
+        </select>
+
+        <input *ngSwitchDefault [(ngModel)]="model[getFieldName(f)]" [name]="getFieldName(f)" />
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button type="button" (click)="search()">Rechercher</button>
+  </div>
+</form>

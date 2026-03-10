@@ -1,13 +1,25 @@
-input.dynamic-input {
-	padding: 6px 8px;
-	border: 1px solid #ccc;
-	background: #fff;
-	color: #111;
+:host {
+  display: block;
 }
 
-.theme-dark input.dynamic-input {
-	background: #333333;
-	border-color: #444444;
-	color: #e8e8e8;
+:host input {
+  width: 100%;
+  height: 38px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 0 12px;
+  outline: none;
 }
 
+:host input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+:host-context(.theme-dark) input {
+  background: #0f172a;
+  border-color: #334155;
+  color: #e2e8f0;
+}

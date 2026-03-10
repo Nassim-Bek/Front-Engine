@@ -1,34 +1,38 @@
 <div class="panel">
-	<div class="panel-header">
-		<div class="panel-title">{{ title }}</div>
-		<div class="panel-actions">
-			<button class="btn btn-add">+ Ajouter</button>
-		</div>
-	</div>
+  <div class="panel-header">
+    <div class="panel-title">{{ title || 'Dictionnaire des attributs' }}</div>
+  </div>
 
-	<div class="panel-filter">
-		<div class="filter-left">Filtrer par:</div>
-		<div class="filter-right">
-			<button class="btn">Rechercher</button>
-		</div>
-	</div>
+  <div class="table-toolbar top">
+    <span>[ {{ rows.length }} Nbr lignes ]</span>
+    <app-dynamic-pagination [total]="rows.length" [page]="page" [pageSize]="pageSize" (pageChange)="page = $event"></app-dynamic-pagination>
+  </div>
 
-	<div class="panel-body">
-		<table class="data-table">
-			<thead>
-				<tr>
-					<th *ngFor="let h of headers">{{ h }}</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let row of rows">
-					<td *ngFor="let cell of row">{{ cell }}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+  <div class="panel-body">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th *ngFor="let h of headers">{{ h }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of pagedRows">
+          <td *ngFor="let cell of row; let c = index">
+            <ng-container *ngIf="!isActionsColumn(headers[c]); else actionsTpl">{{ cell }}</ng-container>
+            <ng-template #actionsTpl>
+              <div class="action-icons">
+                <button type="button" title="Afficher">o</button>
+                <button type="button" title="Modifier">i</button>
+              </div>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-	<div class="panel-footer">
-		<app-dynamic-pagination [total]="rows.length" [page]="page" [pageSize]="pageSize" (pageChange)="page = $event"></app-dynamic-pagination>
-	</div>
+  <div class="table-toolbar bottom">
+    <span>[ {{ rows.length }} Nbr lignes ]</span>
+    <app-dynamic-pagination [total]="rows.length" [page]="page" [pageSize]="pageSize" (pageChange)="page = $event"></app-dynamic-pagination>
+  </div>
 </div>

@@ -13,6 +13,16 @@ export class DynamicTableComponent {
   @Input() title = '';
   @Input() headers: string[] = [];
   @Input() rows: any[][] = [];
+  @Input() actions: Array<{ key: string; label: string }> = [];
   @Input() page = 1;
   @Input() pageSize = 10;
+
+  get pagedRows(): any[][] {
+    const start = (this.page - 1) * this.pageSize;
+    return this.rows.slice(start, start + this.pageSize);
+  }
+
+  isActionsColumn(h: string): boolean {
+    return (h || '').toLowerCase().includes('action');
+  }
 }
