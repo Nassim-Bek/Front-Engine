@@ -3,7 +3,16 @@
   "navbar": {
     "menu": [
       { "label": "Accueil", "route": "/home" },
-      { "label": "Gestion des comptes", "route": "/accounts" },
+      { "label": "Engagement",
+        "submenu": [
+
+        ]
+      },
+      { "label": "Gestion des comptes",
+        "submenu": [
+
+        ]
+      },
       {
         "label": "Gestion des clients",
         "submenu": [
@@ -11,6 +20,16 @@
           { "label": "Comptes Trimestrialisés", "route": "/clients/trimestriels" }
         ]
       },
+      { "label": "Compensation",
+        "submenu": [
+
+        ]
+      },
+        { "label": "Divers",
+          "submenu": [
+
+          ]
+        },
       { "label": "Paramétrage", "route": "/settings" }
     ]
   },

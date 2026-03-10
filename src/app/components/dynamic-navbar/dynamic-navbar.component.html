@@ -5,7 +5,7 @@
 
       <a *ngIf="item.submenu" href="#" role="button" aria-haspopup="true" aria-expanded="false" (click)="$event.preventDefault()">
         {{ item.label }}
-        <span class="triangle">?</span>
+        <span class="triangle" aria-hidden="true"></span>
       </a>
 
       <ul *ngIf="item.submenu" class="submenu" [ngClass]="getSubmenuClass()">

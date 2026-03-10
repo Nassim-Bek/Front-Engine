@@ -1,42 +1,30 @@
 import { Injectable } from '@angular/core';
 
+const configLoaders: Record<string, () => Promise<unknown>> = {
+  dictionnaire: async () => (await import('../pages/ui-config-dictionnaireDesAttributs.json')).default,
+  navbar: async () => (await import('../pages/navbar-config.json')).default
+};
+
 @Injectable({ providedIn: 'root' })
 export class UiConfigService {
-	private config: any | null = null;
+  private configCache = new Map<string, unknown>();
 
-	async loadConfig(path: string): Promise<any> {
-		if (this.config) return this.config;
+  async loadConfig(configKey: string): Promise<unknown> {
+    if (this.configCache.has(configKey)) {
+      return this.configCache.get(configKey) as unknown;
+    }
 
-		// Prefer fetch from the assets path at runtime. This avoids build-time
-		// static imports of JSON modules that may not exist for every environment.
-		if (typeof fetch !== 'undefined') {
-			try {
-				const resp = await fetch(path, { cache: 'no-store' });
-				if (!resp.ok) {
-					console.warn('[UiConfigService] fetch failed', path, resp.status);
-					throw new Error('Fetch failed ' + resp.status);
-				}
-				this.config = await resp.json();
-				return this.config;
-			} catch (err) {
-				console.warn('[UiConfigService] fetch error', path, err);
-				throw err;
-			}
-		}
+    const loader = configLoaders[configKey];
+    if (!loader) {
+      throw new Error(`Unknown UI config: ${configKey}`);
+    }
 
-		// Fallback: try dynamic import (may work in some SSR/build setups)
-		try {
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			const mod = await import(path);
-			this.config = mod?.default ?? mod;
-			return this.config;
-		} catch (err) {
-			throw err;
-		}
-	}
+    const config = await loader();
+    this.configCache.set(configKey, config);
+    return config;
+  }
 
-	getConfig(): any | null {
-		return this.config;
-	}
+  getConfig(configKey: string): unknown | null {
+    return this.configCache.get(configKey) ?? null;
+  }
 }

@@ -16,25 +16,11 @@ export class DynamicNavbarComponent {
   theme = ThemeLoader.getTheme();
 
   ngOnInit(): void {
-    this.menuConfig.forEach((item) => {
-      item.open = false;
-    });
-
     try {
       ThemeLoader.onChange((t: any) => {
         this.theme = t;
       });
     } catch (e) {}
-  }
-
-  openSubmenu(item: any): void {
-    if (!item?.submenu) return;
-    item.open = true;
-  }
-
-  closeSubmenu(item: any): void {
-    if (!item?.submenu) return;
-    item.open = false;
   }
 
   getNavbarClass(): string {
