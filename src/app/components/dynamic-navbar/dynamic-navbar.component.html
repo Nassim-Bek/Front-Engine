@@ -1,21 +1,14 @@
 <nav [ngClass]="getNavbarClass()">
   <ul class="navbar-list">
-    <li
-      *ngFor="let item of menuConfig"
-      class="navbar-item"
-      (mouseenter)="openSubmenu(item)"
-      (mouseleave)="closeSubmenu(item)"
-      (focusin)="openSubmenu(item)"
-      (focusout)="closeSubmenu(item)"
-    >
+    <li *ngFor="let item of menuConfig" class="navbar-item" [class.has-submenu]="!!item.submenu">
       <a *ngIf="!item.submenu" [routerLink]="item.route">{{ item.label }}</a>
 
-      <a *ngIf="item.submenu" href="#" role="button" [attr.aria-expanded]="item.open ? 'true' : 'false'" (click)="$event.preventDefault()">
+      <a *ngIf="item.submenu" href="#" role="button" aria-haspopup="true" aria-expanded="false" (click)="$event.preventDefault()">
         {{ item.label }}
         <span class="triangle">?</span>
       </a>
 
-      <ul *ngIf="item.submenu && item.open" [ngClass]="getSubmenuClass()">
+      <ul *ngIf="item.submenu" class="submenu" [ngClass]="getSubmenuClass()">
         <li *ngFor="let sub of item.submenu" class="submenu-item">
           <a [routerLink]="sub.route">{{ sub.label }}</a>
         </li>
