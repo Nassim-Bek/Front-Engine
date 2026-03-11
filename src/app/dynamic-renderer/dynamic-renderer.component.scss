@@ -1,8 +1,17 @@
 .dynamic-renderer {
-  padding: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
 }
 
-/* Keep renderer styling minimal; presentation belongs to child components */
-.dynamic-renderer > div[role="dynamicContainer"] {
+.dynamic-renderer > div {
   width: 100%;
+}
+
+:host-context(.theme-dark) .dynamic-renderer {
+  background: rgba(15, 23, 42, 0.78);
+  border-color: rgba(71, 85, 105, 0.55);
+  box-shadow: 0 18px 34px rgba(2, 6, 23, 0.42);
 }

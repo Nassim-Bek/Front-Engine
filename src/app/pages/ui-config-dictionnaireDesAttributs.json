@@ -30,7 +30,24 @@
 
           ]
         },
-      { "label": "Paramétrage", "route": "/settings" }
+        {
+          "label": "Flux en masse",
+          "submenu": [
+
+          ]
+        },
+      {
+        "label": "Paramétrage",
+        "submenu": [
+          
+        ]
+      },
+      {
+        "label": "Déclarations réglementaires",
+        "submenu": [
+
+        ]
+      }
     ]
   },
   "addButton": {
